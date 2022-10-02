@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // pages
+import Home from "pages/Home";
 import Profile from "pages/Profile";
 
 // components
@@ -15,6 +16,7 @@ root.render(
     <Router>
       <Layout>
         <Routes>
+          <Route path="/" exact element={<Home />} />
           <Route path="/user/:id" element={<Profile />} />
           <Route path="*" element={<Error />} />
         </Routes>
