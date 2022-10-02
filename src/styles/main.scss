@@ -1,0 +1,14 @@
+// google fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+// variables
+$font-stack: 'Roboto', sans-serif;
+$primary-color: #E60000;
+$secondary-color: #000000;
+$tertiary-color: #74798C;
+
+
+body {
+  font: 100% $font-stack;
+  color: #000;
+}
