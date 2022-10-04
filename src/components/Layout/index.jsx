@@ -1,14 +1,17 @@
 import React from "react";
 import Header from "../Header";
-import Sidebar from "../Sidebar";
+import SideNav from "../SideNav";
+import styles from "styles/components/layout.module.scss"
 
 function Layout({ children }) {
   return (
-    <div>
+    <>
       <Header />
-      <Sidebar />
-      <div>{children}</div>
-    </div>
+      <div className={styles.container}>
+        <SideNav />
+        <main>{children}</main>
+      </div>
+    </>
   );
 }
 
