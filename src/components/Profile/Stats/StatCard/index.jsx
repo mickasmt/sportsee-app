@@ -4,11 +4,11 @@ import styles from "styles/components/profile/stats.module.scss";
 
 function StatCard({ type, value }) {
   return (
-    <div className="">
-      <div style={{ backgroundColor: type.bgColor }}>
+    <div className={styles.statCard}>
+      <div className={styles.iconContainer} style={{ backgroundColor: type.bgColor }}>
         <img src={type.icon} alt={"logo-" + type.name} />
       </div>
-      <div>
+      <div className={styles.statInfos}>
         <h4>
           {value}
           {type.unit}

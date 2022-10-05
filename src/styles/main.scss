@@ -8,13 +8,19 @@
   --secondary-color: #020203;
   --tertiary-color: #74798C;
 
+  --lightGray-color: #FBFBFB;
+  --gray-color: #74798C;
+  --darkGray-color: #282D30;
+
   --heightHeader: 91px;
   --widthSideNav: 117px;
 }
 
+* {
+  margin: 0;
+}
 
 body {
-  margin: 0;
   color: #000;
   box-sizing: border-box;
   font-family: var(--font-stack);
