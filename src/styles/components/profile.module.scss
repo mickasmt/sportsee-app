@@ -1,0 +1,21 @@
+.profileContainer {
+  padding-left: 109px;
+  padding-right: 90px;
+}
+
+.profileGrid {
+  display: grid;
+  grid-gap: 31px;
+  grid-template-columns: auto 258px;
+  grid-template-rows: 1fr min-content;
+}
+
+.graphsColumn {
+  flex: 1;
+  width: 100%;
+}
+
+.statsColumn {
+  width: 258px;
+  max-width: 258px;
+}

@@ -17,7 +17,7 @@ function Header() {
 
       <nav>
         {links.map((link) => (
-          <Link className={styles.links} to={link.url}>{link.name}</Link>
+          <Link className={styles.links} to={link.url} key={link.name}>{link.name}</Link>
         ))}
       </nav>
     </header>

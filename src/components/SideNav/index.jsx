@@ -8,10 +8,10 @@ import bike from "assets/icons/bike.svg";
 import dumbbell from "assets/icons/dumbbell.svg";
 
 const sideIconLinks = [
-  { icon: yoga, url: "/" },
-  { icon: swimming, url: "/" },
-  { icon: bike, url: "/" },
-  { icon: dumbbell, url: "/" },
+  { name: "yoga", icon: yoga, url: "/" },
+  { name: "swim", icon: swimming, url: "/" },
+  { name: "bike", icon: bike, url: "/" },
+  { name: "dumb", icon: dumbbell, url: "/" },
 ];
 
 function SideNav() {
@@ -20,11 +20,11 @@ function SideNav() {
       <div className={styles.container}>
         <div>
           {sideIconLinks.map((link) => (
-            <Link className={styles.links} to={link.url}>
+            <Link className={styles.links} to={link.url} key={link.name}>
               <img
                 className="header-logo"
                 src={link.icon}
-                alt="sportsee-logo"
+                alt={'side-logo-'+link.name}
               />
             </Link>
           ))}
