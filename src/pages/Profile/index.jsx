@@ -1,11 +1,12 @@
 import React from "react";
 import data from "data/mocks.json";
-import { useParams } from "react-router-dom";
-import styles from "styles/components/profile.module.scss"
+// import { useParams } from "react-router-dom";
+import styles from "styles/components/profile.module.scss";
 
 import UserInfo from "components/Profile/UserInfo";
 import StatsList from "components/Profile/Stats/StatsList";
 import BarChart from "components/Profile/Charts/BarChart";
+import AreaChart from "components/Profile/Charts/AreaChart";
 
 function Profile() {
   // get ID from url
@@ -13,6 +14,7 @@ function Profile() {
 
   const userStats = data.data.keyData;
   const userActivity = data.activity.data.sessions;
+  const userAverageSessions = data.averageSessions.data.sessions;
 
   return (
     <div className={styles.profileContainer}>
@@ -21,6 +23,12 @@ function Profile() {
       <div className={styles.profileGrid}>
         <div className={styles.graphsColumn}>
           <BarChart data={userActivity} />
+
+          <div className={styles.graphsMultiColumns}>
+            <AreaChart data={userAverageSessions} />
+            <div className={styles.graphi}>graph 1</div>
+            <div className={styles.graphi}>grah 2</div>
+          </div>
         </div>
 
         <div className={styles.statsColumn}>

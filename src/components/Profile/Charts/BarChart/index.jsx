@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import styles from "styles/components/profile/charts.module.scss";
+import styles from "styles/components/profile/charts/bar.module.scss";
 
 const CustomTooltip = ({ active, payload }) => {
   console.log(payload);
