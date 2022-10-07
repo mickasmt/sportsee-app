@@ -12,7 +12,6 @@ import {
 import styles from "styles/components/profile/charts/bar.module.scss";
 
 const CustomTooltip = ({ active, payload }) => {
-  console.log(payload);
   if (active && payload && payload.length) {
     return (
       <div className={styles.customTooltip}>
