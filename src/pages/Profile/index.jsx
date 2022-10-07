@@ -5,8 +5,10 @@ import styles from "styles/components/profile.module.scss";
 
 import UserInfo from "components/Profile/UserInfo";
 import StatsList from "components/Profile/Stats/StatsList";
-import BarChart from "components/Profile/Charts/BarChart";
-import AreaChart from "components/Profile/Charts/AreaChart";
+import Activity from "components/Profile/Activity";
+import Score from "components/Profile/Score";
+import AverageSessions from "components/Profile/AverageSessions";
+import Performances from "components/Profile/Performances";
 
 import {
   getUser,
@@ -22,8 +24,7 @@ function Profile() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  const [userInfos, setUserInfos] = useState(null);
-  const [userStats, setUserStats] = useState(null);
+  const [user, setUser] = useState(null);
   const [userActivities, setUserActivities] = useState(null);
   const [userPerformances, setUserPerformances] = useState(null);
   const [userAverageSessions, setUserAverageSessions] = useState(null);
@@ -32,9 +33,8 @@ function Profile() {
     setTimeout(() => {
       getUser(params.id)
         .then((data) => {
+          setUser(data.data);
           setIsLoading(false);
-          setUserInfos(data.data.userInfos);
-          setUserStats(data.data.keyData);
         })
         .catch((err) => {
           setError(err);
@@ -79,21 +79,24 @@ function Profile() {
 
   return (
     <div className={styles.profileContainer}>
-      {userInfos && <UserInfo firstname={userInfos.firstName} />}
+      {user && <UserInfo firstname={user.userInfos.firstName} />}
 
       <div className={styles.profileGrid}>
         <div className={styles.graphsColumn}>
-          <BarChart data={userActivities} />
+          <Activity data={userActivities} />
 
           <div className={styles.graphsMultiColumns}>
-            <AreaChart data={userAverageSessions} />
-            <div className={styles.graphi}>graph 1</div>
-            <div className={styles.graphi}>grah 2</div>
+            <AverageSessions data={userAverageSessions} />
+            <Score score={user.todayScore} />
+
+            <div className={styles.graphi}></div>
+            <div className={styles.graphi}></div>
+            
           </div>
         </div>
 
         <div className={styles.statsColumn}>
-          {userStats && <StatsList stats={userStats} />}
+          {user && <StatsList stats={user.keyData} />}
         </div>
       </div>
     </div>

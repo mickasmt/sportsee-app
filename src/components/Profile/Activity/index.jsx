@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import {
   Bar,
-  BarChart as BarGraph,
+  BarChart,
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
-import styles from "styles/components/profile/charts/bar.module.scss";
+import styles from "styles/components/profile/activity.module.scss";
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -24,7 +24,7 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-function BarChart({ data }) {
+function Activity({ data }) {
   return (
     <div className={styles.barChartContainer}>
       <div className={styles.headerBarChart}>
@@ -43,7 +43,7 @@ function BarChart({ data }) {
       </div>
 
       <ResponsiveContainer width={750} height="100%">
-        <BarGraph data={data}>
+        <BarChart data={data}>
           <CartesianGrid vertical={false} strokeDasharray="2 2" />
           <XAxis
             dataKey="day"
@@ -89,13 +89,13 @@ function BarChart({ data }) {
             barSize={7}
             radius={[50, 50, 0, 0]}
           />
-        </BarGraph>
+        </BarChart>
       </ResponsiveContainer>
     </div>
   );
 }
 
-BarChart.propTypes = {
+Activity.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
     day: PropTypes.string.isRequired,
     kilogram: PropTypes.number.isRequired,
@@ -103,4 +103,4 @@ BarChart.propTypes = {
 })),
 };
 
-export default BarChart;
+export default Activity;

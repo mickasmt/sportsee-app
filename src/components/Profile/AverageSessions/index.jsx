@@ -2,20 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import {
   Area,
-  AreaChart as AreaGraph,
+  AreaChart,
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
-import styles from "styles/components/profile/charts/area.module.scss";
+import styles from "styles/components/profile/averageSessions.module.scss";
 
-function AreaChart({ data }) {
+function AverageSessions({ data }) {
   return (
     <div className={styles.areaChartContainer}>
       <ResponsiveContainer width="100%" height="100%">
-        <AreaGraph
+        <AreaChart
           width={500}
           height={400}
           data={data}
@@ -36,13 +36,13 @@ function AreaChart({ data }) {
             stroke="#8884d8"
             fill="#8884d8"
           />
-        </AreaGraph>
+        </AreaChart>
       </ResponsiveContainer>
     </div>
   );
 }
 
-AreaChart.propTypes = {
+AverageSessions.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       day: PropTypes.number.isRequired,
@@ -51,4 +51,4 @@ AreaChart.propTypes = {
   ),
 };
 
-export default AreaChart;
+export default AverageSessions;
