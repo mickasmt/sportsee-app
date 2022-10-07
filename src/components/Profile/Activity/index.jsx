@@ -46,11 +46,14 @@ function Activity({ data }) {
         <BarChart data={data}>
           <CartesianGrid vertical={false} strokeDasharray="2 2" />
           <XAxis
+            dy={15}
+            stroke="1 1"
             dataKey="day"
             tickLine={false}
             tick={{ fontSize: 14, fontWeight: 500, fill: "#9B9EAC" }}
-            dy={15}
-            stroke="1 1"
+            tickFormatter={(day) => {
+              return new Date(day).getDate();
+            }}
           />
           <YAxis
             yAxisId="kilogram"

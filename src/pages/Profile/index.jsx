@@ -65,7 +65,7 @@ function Profile() {
         .then((data) => {
           // console.log(data);
           setIsLoading(false);
-          setUserPerformances(data.data.data);
+          setUserPerformances(data.data);
         })
         .catch((err) => {
           setError(err);
@@ -85,13 +85,14 @@ function Profile() {
         <div className={styles.graphsColumn}>
           <Activity data={userActivities} />
 
-          <div className={styles.graphsMultiColumns}>
+          <div className={styles.chartCardsContainer}>
             <AverageSessions data={userAverageSessions} />
+            {/* <Performances
+              kind={userPerformances.kind}
+              data={userPerformances.data}
+            /> */}
             <Score score={user.todayScore} />
-
             <div className={styles.graphi}></div>
-            <div className={styles.graphi}></div>
-            
           </div>
         </div>
 

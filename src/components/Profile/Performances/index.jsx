@@ -10,9 +10,10 @@ import {
 } from "recharts";
 import styles from "styles/components/profile/performances.module.scss";
 
-function Performances({ data }) {
+function Performances({ kind, data }) {
+  console.table(data)
   return (
-    <div>
+    <div className={styles.radarContainer}>
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
           <PolarGrid />
@@ -32,10 +33,11 @@ function Performances({ data }) {
 }
 
 Performances.propTypes = {
+  kind: PropTypes.object.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      day: PropTypes.number.isRequired,
-      sessionLength: PropTypes.number.isRequired,
+      value: PropTypes.number.isRequired,
+      kind: PropTypes.number.isRequired,
     })
   ),
 };

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {
   Area,
   AreaChart,
-  CartesianGrid,
+  Line,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -11,30 +11,65 @@ import {
 } from "recharts";
 import styles from "styles/components/profile/averageSessions.module.scss";
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className={styles.customTooltip}>
+        <p>{payload[0].value} min</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
 function AverageSessions({ data }) {
   return (
-    <div className={styles.areaChartContainer}>
-      <ResponsiveContainer width="100%" height="100%">
+    <div className={styles.averageContainer}>
+      <div className={styles.averageTitle}>
+        <h3>Durée moyenne des sessions</h3>
+      </div>
+      <ResponsiveContainer>
         <AreaChart
-          width={500}
-          height={400}
+          outerRadius={90}
           data={data}
           margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
+            top: 50,
+            left: 10,
+            right: 10,
+            bottom: 10,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" />
-          <YAxis />
-          <Tooltip />
+          <XAxis
+            dataKey="day"
+            axisLine={false}
+            tickLine={false}
+            // height={20}
+            tick={{ fontSize: 12, fontWeight: 500, fill: "#fff", opacity: 0.5 }}
+            tickFormatter={(day) => {
+              const weekdays = ["L", "M", "M", "J", "V", "S", "D"];
+              return weekdays[day - 1];
+            }}
+            allowDataOverflow={false}
+          />
+          <YAxis
+            hide={true}
+            domain={["dataMin-8", "dataMax+25"]}
+          />
+          {/* <Line type="monotone" dataKey="sessionLength" /> */}
+          <Tooltip content={<CustomTooltip />} cursor={false} />
           <Area
             type="monotone"
             dataKey="sessionLength"
-            stroke="#8884d8"
-            fill="#8884d8"
+            stroke="#fff"
+            strokeWidth="2"
+            // fill="rgba(255,255,255,.1)"
+            fill="rgba(255,255,255,0)"
+            activeDot={{
+              stroke: "rgba(255,255,255,.3)",
+              strokeWidth: 10,
+              r: 6,
+            }}
           />
         </AreaChart>
       </ResponsiveContainer>

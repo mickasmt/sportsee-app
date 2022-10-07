@@ -55,8 +55,8 @@ const data = [
 ];
 
 function Score({ score }) {
-  console.table(data);
   return (
+    <div className={styles.scoreContainer}>
     <ResponsiveContainer width="100%" height="100%">
       <RadialBarChart
         width={730}
@@ -84,6 +84,7 @@ function Score({ score }) {
         /> */}
       </RadialBarChart>
     </ResponsiveContainer>
+    </div>
   );
 }
 

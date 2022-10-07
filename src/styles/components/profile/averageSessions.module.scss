@@ -1,0 +1,30 @@
+.averageContainer {
+  position: relative;
+  background: var(--primary-color);
+}
+
+.averageTitle {
+  position: absolute;
+  top: 29px;
+  left: 34px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.customTooltip {
+  height: 25px;
+  width: 39px;
+  background: #fff;
+  text-align: center;
+
+  p {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
