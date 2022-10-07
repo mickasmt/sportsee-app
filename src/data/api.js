@@ -1,8 +1,7 @@
 import mockData from "./mocks.json";
 
 const baseUrl = "http://localhost:3000";
-// const callMock = process.env.TEST_MOCK || true;
-const callMock = false; //for test fetch api
+const callMock = process.env.TEST_MOCK || false;
 
 export const getUser = async (id) => {
   if (callMock) {
