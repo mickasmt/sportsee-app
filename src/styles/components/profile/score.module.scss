@@ -1,3 +1,22 @@
 .scoreContainer {
   background: var(--lightGray-color);
 }
+
+.customLegend {
+  text-align: center;
+
+  .percent {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 26px;
+  }
+
+  p {
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    color: var(--gray-color);
+  }
+
+}
