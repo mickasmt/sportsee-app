@@ -8,23 +8,30 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
+import { kindDataFormat } from "utils/dataFormat";
 import styles from "styles/components/profile/performances.module.scss";
 
 function Performances({ kind, data }) {
-  console.table(data)
   return (
     <div className={styles.radarContainer}>
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis />
+        <RadarChart
+          outerRadius={80}
+          data={data}
+        >
+          <PolarAngleAxis
+            dataKey="kind"
+            stroke="#FFF"
+            tickLine={false}
+            tickFormatter={(kindNumber) => kindDataFormat(kindNumber, kind) }
+          />
+          <PolarGrid radialLines={false} />
+          <PolarRadiusAxis axisLine={false} tick={false} />
           <Radar
-            name="Mike"
-            dataKey="A"
-            stroke="#8884d8"
-            fill="#8884d8"
-            fillOpacity={0.6}
+            dataKey="value"
+            stroke="#ff0101"
+            fill="#ff0101"
+            fillOpacity={0.7}
           />
         </RadarChart>
       </ResponsiveContainer>

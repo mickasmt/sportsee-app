@@ -65,7 +65,6 @@ function Profile() {
 
       getUserPerformances(params.id)
         .then((data) => {
-          // console.log(data);
           setIsLoading(false);
           setUserPerformances(data.data);
         })
@@ -85,16 +84,17 @@ function Profile() {
 
       <div className={styles.profileGrid}>
         <div className={styles.graphsColumn}>
-          <Activity data={userActivities} />
+          {userActivities && <Activity data={userActivities} />}
 
           <div className={styles.chartCardsContainer}>
-            <AverageSessions data={userAverageSessions} />
-            {/* <Performances
-              kind={userPerformances.kind}
-              data={userPerformances.data}
-            /> */}
-            <Score score={user.todayScore} />
-            <div className={styles.graphi}></div>
+            {userAverageSessions && <AverageSessions data={userAverageSessions} />}
+            {userPerformances && (
+              <Performances
+                kind={userPerformances.kind}
+                data={userPerformances.data}
+              />
+            )}
+            {user && <Score score={user.todayScore} />}
           </div>
         </div>
 
