@@ -99,11 +99,13 @@ function Activity({ data }) {
 }
 
 Activity.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
-    day: PropTypes.string.isRequired,
-    kilogram: PropTypes.number.isRequired,
-    calories: PropTypes.number.isRequired,
-})),
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string.isRequired,
+      kilogram: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired,
+    })
+  ),
 };
 
 export default Activity;

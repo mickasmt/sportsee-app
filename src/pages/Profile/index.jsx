@@ -17,6 +17,7 @@ import {
   getUserPerformances,
 } from "data/api";
 import Error from "components/Error";
+import { userDataFormat } from "utils/dataFormat";
 
 function Profile() {
   const params = useParams();
@@ -33,7 +34,8 @@ function Profile() {
     setTimeout(() => {
       getUser(params.id)
         .then((data) => {
-          setUser(data.data);
+          const formattedUserData = userDataFormat(data.data);
+          setUser(formattedUserData);
           setIsLoading(false);
         })
         .catch((err) => {

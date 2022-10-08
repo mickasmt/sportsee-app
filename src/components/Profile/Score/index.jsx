@@ -57,15 +57,15 @@ const data = [
 function Score({ score }) {
   return (
     <div className={styles.scoreContainer}>
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer>
       <RadialBarChart
         width={730}
         height={250}
         innerRadius="10%"
         outerRadius="80%"
         data={data}
-        startAngle={180}
-        endAngle={0}
+        startAngle={90}
+        endAngle={360}
       >
         <RadialBar
           minAngle={15}

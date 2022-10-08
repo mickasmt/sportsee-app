@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import {
   Area,
   AreaChart,
-  Line,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -27,7 +26,7 @@ function AverageSessions({ data }) {
   return (
     <div className={styles.averageContainer}>
       <div className={styles.averageTitle}>
-        <h3>Durée moyenne des sessions</h3>
+        <h3>Durée moyenne des <br/> sessions</h3>
       </div>
       <ResponsiveContainer>
         <AreaChart
@@ -56,7 +55,6 @@ function AverageSessions({ data }) {
             hide={true}
             domain={["dataMin-8", "dataMax+25"]}
           />
-          {/* <Line type="monotone" dataKey="sessionLength" /> */}
           <Tooltip content={<CustomTooltip />} cursor={false} />
           <Area
             type="monotone"
