@@ -87,7 +87,9 @@ function Profile() {
           {userActivities && <Activity data={userActivities} />}
 
           <div className={styles.chartCardsContainer}>
-            {userAverageSessions && <AverageSessions data={userAverageSessions} />}
+            {userAverageSessions && (
+              <AverageSessions data={userAverageSessions} />
+            )}
             {userPerformances && (
               <Performances
                 kind={userPerformances.kind}
@@ -98,9 +100,10 @@ function Profile() {
           </div>
         </div>
 
-        <div className={styles.statsColumn}>
-          {user && <StatsList stats={user.keyData} />}
-        </div>
+        {/* Right column */}
+        {user && <StatsList stats={user.keyData} />}
+        {/* <div className={styles.statsColumn}> */}
+        {/* </div> */}
       </div>
     </div>
   );

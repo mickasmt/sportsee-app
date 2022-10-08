@@ -1,4 +1,6 @@
 .statsList {
+  width: 100%;
+  max-width: 258px;
   display: flex;
   flex-direction: column;
 
@@ -36,7 +38,7 @@
   flex-direction: column;
   justify-content: center;
   vertical-align: middle;
-  
+
   h4 {
     font-weight: 700;
     font-size: 20px;
@@ -50,5 +52,20 @@
     font-size: 14px;
     line-height: 24px;
     color: var(--gray-color);
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .statsList {
+    display: grid;
+    grid-gap: 20px;
+    grid-auto-columns: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    margin-bottom: 30px;
+    max-width: 850px;
+    > * {
+      margin-bottom: 0;
+    }
   }
 }

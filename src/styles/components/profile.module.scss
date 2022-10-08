@@ -4,21 +4,22 @@
 }
 
 .profileGrid {
-  display: grid;
-  grid-gap: 31px;
-  grid-template-columns: auto 258px;
-  grid-template-rows: 1fr min-content;
+  // display: grid;
+  // grid-gap: 31px;
+  // // grid-template-columns: auto 258px;
+  // // grid-template-rows: 1fr min-content;
+  // grid-auto-columns: auto;
+  // grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
+  
 }
 
 .graphsColumn {
   flex: 1;
   width: 100%;
+  max-width: 850px;
   margin-right: 31px;
-}
-
-.statsColumn {
-  width: 258px;
-  max-width: 258px;
 }
 
 .chartCardsContainer {
@@ -29,14 +30,23 @@
 
   > * {
     overflow: hidden;
-    // width: 258px;
+    width: 258px;
     height: 263px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     border-radius: 5px;
   }
 }
 
-.graphi {
-  height: 263px;
-  width: 258px;
+
+@media screen and (max-width: 1350px) {
+  .profileContainer {
+    width: 100%;
+    padding: 0 30px;
+    margin: 0 auto;
+    max-width: 850px;
+  }
+
+  .profileGrid {
+    flex-direction: column;
+  }
 }

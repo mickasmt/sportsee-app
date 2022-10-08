@@ -42,8 +42,18 @@ function Activity({ data }) {
         </div>
       </div>
 
-      <ResponsiveContainer width={750} height="100%">
-        <BarChart data={data}>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data}
+        margin={{
+          top: 0,
+          right: 0,
+          left: 0,
+          bottom: 10,
+        }}
+        barGap={5}
+        stackOffset="expand"
+        style={{ padding: '0 20px' }}
+        >
           <CartesianGrid vertical={false} strokeDasharray="2 2" />
           <XAxis
             dy={15}
