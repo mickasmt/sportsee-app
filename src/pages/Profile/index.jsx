@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import data from "data/mocks.json";
 import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import styles from "styles/components/profile.module.scss";
 
-import UserInfo from "components/Profile/UserInfo";
-import StatsList from "components/Profile/Stats/StatsList";
+import Error from "components/Error";
 import Activity from "components/Profile/Activity";
-import Score from "components/Profile/Score";
 import AverageSessions from "components/Profile/AverageSessions";
 import Performances from "components/Profile/Performances";
+import Score from "components/Profile/Score";
+import StatsList from "components/Profile/Stats/StatsList";
+import UserInfo from "components/Profile/UserInfo";
 
 import {
   getUser,
@@ -16,7 +16,6 @@ import {
   getUserAverageSessions,
   getUserPerformances,
 } from "data/api";
-import Error from "components/Error";
 import { userDataFormat } from "utils/dataFormat";
 
 function Profile() {
@@ -102,8 +101,6 @@ function Profile() {
 
         {/* Right column */}
         {user && <StatsList stats={user.keyData} />}
-        {/* <div className={styles.statsColumn}> */}
-        {/* </div> */}
       </div>
     </div>
   );

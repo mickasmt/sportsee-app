@@ -1,8 +1,11 @@
 import mockData from "./mocks.json";
 
 const baseUrl = "http://localhost:3000";
-// const callMock = process.env.TEST_MOCK || false;
-const callMock = false;
+
+// get env variable & check if the string value is "true" or not
+// if value is "true", the test return true (boolean)
+const callMock = (/true/i).test(process.env.REACT_APP_TEST_MOCK) || false;
+
 
 export const getUser = async (id) => {
   if (callMock) {
