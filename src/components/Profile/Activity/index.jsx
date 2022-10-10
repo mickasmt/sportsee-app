@@ -42,7 +42,7 @@ function Activity({ data }) {
         </div>
       </div>
 
-      <ResponsiveContainer width="99%" aspect={3}>
+      <ResponsiveContainer width="99%" height="100%">
         <BarChart data={data}
         margin={{
           top: 0,
