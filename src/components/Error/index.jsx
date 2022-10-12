@@ -1,14 +1,13 @@
-// import { ErrorContainer, ErrorTitle, ErrorContent, HomeLink } from "./styled";
+import { Link } from "react-router-dom";
+import styles from "styles/components/error.module.scss";
 
 function Error() {
   return (
-    // <ErrorContainer>
-    //   <ErrorTitle>404</ErrorTitle>
-    //   <ErrorContent>Oups! La page que vous demandez n'existe pas.</ErrorContent>
-
-    //   <HomeLink to="/">Retourner sur la page d’accueil</HomeLink>
-    // </ErrorContainer>
-    <div>Error</div>
+    <div className={styles.errorContainer}>
+      <h2>404</h2>
+      <p>Oups! La page que vous demandez n'existe pas.</p>
+      <Link to="/">Retourner sur la page d’accueil</Link>
+    </div>
   );
 }
 

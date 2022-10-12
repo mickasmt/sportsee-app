@@ -13,11 +13,15 @@ const links = [
 function Header() {
   return (
     <header>
-      <img className="header-logo" src={logo} alt="sportsee-logo" />
+      <Link to="/">
+        <img className="header-logo" src={logo} alt="sportsee-logo" />
+      </Link>
 
       <nav>
         {links.map((link) => (
-          <Link className={styles.links} to={link.url} key={link.name}>{link.name}</Link>
+          <Link className={styles.links} to={link.url} key={link.name}>
+            {link.name}
+          </Link>
         ))}
       </nav>
     </header>
