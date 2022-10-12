@@ -11,7 +11,7 @@ function getWindowSize() {
 
 /**
  * Watch and return width/height if window size change
- * @return object with new width/height
+ * @returns {Object} with new width/height
  */
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState(getWindowSize());
