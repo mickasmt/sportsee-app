@@ -7,7 +7,7 @@
 SportSee is a sport analytics dashboard.
 The user can access his profile and follow the number of sessions performed as well as the number of calories burned.
 
-#### 1.2 Dependencies
+### 1.2 Dependencies
 
 * React 18
 * React Router v6
