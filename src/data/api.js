@@ -2,11 +2,18 @@ import mockData from "./mocks.json";
 
 const baseUrl = "http://localhost:3000";
 
-// get env variable & check if the string value is "true" or not
-// if value is "true", the test return true (boolean)
+/**
+ * get env variable & check if the string value is "true" or not
+ * if value is "true", the test return true (boolean)
+ */
 const callMock = (/true/i).test(process.env.REACT_APP_TEST_MOCK) || false;
 
 
+/**
+ * Fetch user infos/stats with api url (or in mocks data) with user id
+ * @param  {Number} id User ID
+ * @returns {JSON} Return user infos
+ */
 export const getUser = async (id) => {
   if (callMock) {
     const promise = new Promise((res) => res(mockData));
@@ -21,6 +28,12 @@ export const getUser = async (id) => {
   }
 };
 
+
+/**
+ * Fetch user activities with api url (or in mocks data) with user id
+ * @param  {Number} id User ID
+ * @returns {JSON} Return user activities
+ */
 export const getUserActivities = async (id) => {
   if (callMock) {
     const promise = new Promise((res) => res(mockData.activity));
@@ -38,6 +51,12 @@ export const getUserActivities = async (id) => {
   }
 };
 
+
+/**
+ * Fetch user average sessions with api url (or in mocks data) with user id
+ * @param  {Number} id User ID
+ * @returns {JSON} Return user average sessions
+ */
 export const getUserAverageSessions = async (id) => {
   if (callMock) {
     const promise = new Promise((res) => res(mockData.averageSessions));
@@ -55,6 +74,12 @@ export const getUserAverageSessions = async (id) => {
   }
 };
 
+
+/**
+ * Fetch user performances with api url (or in mocks data) with user id
+ * @param  {Number} id User ID
+ * @returns {JSON} Return user performances
+ */
 export const getUserPerformances = async (id) => {
   if (callMock) {
     const promise = new Promise((res) => res(mockData.performance));
