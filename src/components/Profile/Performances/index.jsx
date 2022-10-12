@@ -8,7 +8,6 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
-import { kindDataFormat } from "utils/dataFormat";
 import styles from "styles/components/profile/performances.module.scss";
 
 function Performances({ kind, data }) {
@@ -23,7 +22,7 @@ function Performances({ kind, data }) {
             dataKey="kind"
             stroke="#FFF"
             tickLine={false}
-            tickFormatter={(kindNumber) => kindDataFormat(kindNumber, kind) }
+            tickFormatter={(kindNumber) => kind[kindNumber] }
           />
           <PolarGrid radialLines={false} />
           <PolarRadiusAxis axisLine={false} tick={false} />

@@ -61,9 +61,9 @@ function Activity({ data }) {
             dataKey="day"
             tickLine={false}
             tick={{ fontSize: 14, fontWeight: 500, fill: "#9B9EAC" }}
-            tickFormatter={(day) => {
-              return new Date(day).getDate();
-            }}
+            // tickFormatter={(day) => {
+            //   return new Date(day).getDate();
+            // }}
           />
           <YAxis
             yAxisId="kilogram"
@@ -111,7 +111,7 @@ function Activity({ data }) {
 Activity.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      day: PropTypes.string.isRequired,
+      day: PropTypes.number.isRequired,
       kilogram: PropTypes.number.isRequired,
       calories: PropTypes.number.isRequired,
     })

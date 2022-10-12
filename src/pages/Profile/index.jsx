@@ -16,7 +16,13 @@ import {
   getUserAverageSessions,
   getUserPerformances,
 } from "data/api";
-import { userDataFormat } from "utils/dataFormat";
+
+import {
+  userDataFormat,
+  userActivitiesFormat,
+  userPerformancesFormat,
+  userAverageSessionsFormat,
+} from "utils/classes/UserModel";
 
 function Profile() {
   const params = useParams();
@@ -33,8 +39,8 @@ function Profile() {
     setTimeout(() => {
       getUser(params.id)
         .then((data) => {
-          const formattedUserData = userDataFormat(data.data);
-          setUser(formattedUserData);
+          const formattedUserClass = new userDataFormat(data.data);
+          setUser(formattedUserClass);
           setIsLoading(false);
         })
         .catch((err) => {
@@ -45,7 +51,8 @@ function Profile() {
       getUserActivities(params.id)
         .then((data) => {
           setIsLoading(false);
-          setUserActivities(data.data.sessions);
+          const formattedUserActivities = new userActivitiesFormat(data.data);
+          setUserActivities(formattedUserActivities);
         })
         .catch((err) => {
           setError(err);
@@ -55,7 +62,8 @@ function Profile() {
       getUserAverageSessions(params.id)
         .then((data) => {
           setIsLoading(false);
-          setUserAverageSessions(data.data.sessions);
+          const formattedUserAverageSessions = new userAverageSessionsFormat(data.data);
+          setUserAverageSessions(formattedUserAverageSessions);
         })
         .catch((err) => {
           setError(err);
@@ -65,15 +73,18 @@ function Profile() {
       getUserPerformances(params.id)
         .then((data) => {
           setIsLoading(false);
-          setUserPerformances(data.data);
+          const formattedUserPerformances = new userPerformancesFormat(data.data);
+          setUserPerformances(formattedUserPerformances);
         })
         .catch((err) => {
+          console.log(err);
           setError(err);
           setIsLoading(false);
         });
-    }, 600);
+    }, 500);
   }, []);
 
+  
   if (isLoading) return <div>Chargement...</div>;
   if (error) return <Error />;
 
@@ -83,11 +94,11 @@ function Profile() {
 
       <div className={styles.profileGrid}>
         <div className={styles.graphsColumn}>
-          {userActivities && <Activity data={userActivities} />}
+          {userActivities && <Activity data={userActivities.sessions} />}
 
           <div className={styles.chartCardsContainer}>
             {userAverageSessions && (
-              <AverageSessions data={userAverageSessions} />
+              <AverageSessions data={userAverageSessions.sessions} />
             )}
             {userPerformances && (
               <Performances
