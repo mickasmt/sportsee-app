@@ -1,3 +1,8 @@
+/**
+ * @description Class to format user infos/stats
+ * @param {Object} data
+ * @returns {Object}
+ */
 export class userDataFormat {
   constructor(data) {
     this.id = data.id;
@@ -12,6 +17,11 @@ export class userDataFormat {
   }
 }
 
+/**
+ * @description Class to format user activities data 
+ * @param {Object} data
+ * @returns {Object}
+ */
 export class userActivitiesFormat {
   constructor(data) {
     this.userId = data.userId;
@@ -22,6 +32,11 @@ export class userActivitiesFormat {
   }
 }
 
+/**
+ * @description Class to format user average sessions data 
+ * @param {Object} data
+ * @returns {Object}
+ */
 export class userAverageSessionsFormat {
   constructor(data) {
     this.userId = data.userId;
@@ -29,6 +44,11 @@ export class userAverageSessionsFormat {
   }
 }
 
+/**
+ * @description Class to format user performances data 
+ * @param {Object} data
+ * @returns {Object}
+ */
 export class userPerformancesFormat {
   constructor(data) {
     this.formatKindWordsFr(data.kind);
@@ -38,6 +58,11 @@ export class userPerformancesFormat {
     this.data = data.data;
   }
 
+  
+  /**
+   * Translate the kind words list in french version
+   * @param {Object} kind
+   */
   formatKindWordsFr(kind) {
     const kindWordsFr = {
       cardio: "Cardio",

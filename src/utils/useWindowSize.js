@@ -1,10 +1,18 @@
 import { useEffect, useState } from "react";
 
+/**
+ * Get width / height in window
+ */
 function getWindowSize() {
   const { innerWidth, innerHeight } = window;
   return { innerWidth, innerHeight };
 }
 
+
+/**
+ * Watch and return width/height if window size change
+ * @return object with new width/height
+ */
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
