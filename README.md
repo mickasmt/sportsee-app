@@ -14,6 +14,7 @@ The user can access his profile and follow the number of sessions performed as w
 * Recharts
 * PropsTypes
 * Sass
+* JsDoc
 
 ## 2. Getting Started
 
@@ -48,7 +49,7 @@ yarn start
 
 Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 
-## Data Usage
+## 3. Data Usage
 
 Create a file `.env` and copy/paste the content in `.env.example`.
 
@@ -57,10 +58,13 @@ If you want to use this api, go [here](https://github.com/OpenClassrooms-Student
 
 If you want to use the mocks data, update `.env` like this `REACT_APP_TEST_MOCK=true`.
 
+## 4. Generate documentation JsDoc
+
+The project contains comments in the files. 
+But you can generate the documentation JsDoc if you want.
+
+Use `npm run docs` for generate the `./docs` folder at the root of the project.
+
 ## Authors
 
 Mickael S.
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
