@@ -24,6 +24,11 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
+/**
+ * Activity component. Contains BarChart
+ * @param {data} data Data of user activities
+ * @returns {React.ReactElement}
+ */
 function Activity({ data }) {
   return (
     <div className={styles.barChartContainer}>
@@ -109,10 +114,14 @@ function Activity({ data }) {
 }
 
 Activity.propTypes = {
+  /** Array of objects of user activities */
   data: PropTypes.arrayOf(
     PropTypes.shape({
+      /** Day number of date */
       day: PropTypes.number.isRequired,
+      /** Kilogram of user for the current day */
       kilogram: PropTypes.number.isRequired,
+      /** Calories burns for the current day */
       calories: PropTypes.number.isRequired,
     })
   ),

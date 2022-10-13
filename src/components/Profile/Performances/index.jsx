@@ -10,6 +10,13 @@ import {
 } from "recharts";
 import styles from "styles/components/profile/performances.module.scss";
 
+
+/**
+ * Performances component. Contains RadarChart
+ * @param {Object} kind List of kind french words for the chart
+ * @param {Array} data Data of user performances
+ * @returns {React.ReactElement}
+ */
 function Performances({ kind, data }) {
   return (
     <div className={styles.radarContainer}>
@@ -39,10 +46,14 @@ function Performances({ kind, data }) {
 }
 
 Performances.propTypes = {
+  /** List of kind french words for the chart */
   kind: PropTypes.object.isRequired,
+  /** Array of objects : user performances */
   data: PropTypes.arrayOf(
     PropTypes.shape({
+      /** Value for one kind */
       value: PropTypes.number.isRequired,
+      /** Number for get kind word in list */
       kind: PropTypes.number.isRequired,
     })
   ),

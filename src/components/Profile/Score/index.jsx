@@ -8,7 +8,18 @@ import {
 } from "recharts";
 import styles from "styles/components/profile/score.module.scss";
 
+
+/**
+ * Score component. Contains RadialBarChart
+ * @param {number} score Float number of percent of score user
+ * @returns {React.ReactElement}
+ */
 function Score({ score }) {
+  /**
+   * Custom legend for the RadialBarChart
+   * @returns {React.ReactElement} Return score in percent format. ex: 30%
+   * 
+   */
   const customLegend = () => {
     return (
       <div className={styles.customLegend}>
@@ -82,6 +93,7 @@ function Score({ score }) {
 }
 
 Score.propTypes = {
+  /** Float number of percent of score user */
   score: PropTypes.number.isRequired,
 };
 

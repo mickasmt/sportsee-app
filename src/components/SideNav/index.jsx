@@ -14,6 +14,10 @@ const sideIconLinks = [
   { name: "dumb", icon: dumbbell, url: "/" },
 ];
 
+/**
+ * Side Navigation component
+ * @returns {React.ReactElement}
+ */
 function SideNav() {
   return (
     <div className={styles.sidenav}>

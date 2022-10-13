@@ -2,6 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "styles/components/profile/user-info.module.scss";
 
+/**
+ * User Info component
+ * @param {string} firstname Firstname of the user
+ * @returns {React.ReactElement}
+ */
 function UserInfo({ firstname }) {
   return (
     <div className={styles.headerInfo}>
@@ -14,6 +19,7 @@ function UserInfo({ firstname }) {
 }
 
 UserInfo.propTypes = {
+  /** firstname of user  */
   firstname: PropTypes.string.isRequired,
 };
 

@@ -8,6 +8,7 @@ import proteinIcon from "assets/icons/chicken.svg";
 import carbohydrateIcon from "assets/icons/apple.svg";
 import lipidIcon from "assets/icons/cheeseburger.svg";
 
+/** Array of types stats card */
 const typesStat = [
   {
     name: "calorie",
@@ -39,11 +40,21 @@ const typesStat = [
   },
 ];
 
+/**
+ * Get and check the type of the stat card
+ * @param {string} string Name of stat card 
+ * @returns {string} Verify type name without 'Count' at the end
+ */
 function getTypeStat(string) {
   const type = string.replace("Count", "");
   return typesStat.find((item) => item.name === type);
 }
 
+/**
+ * Stats List component.
+ * @param {Object} stats Data of user stats
+ * @returns {React.ReactElement}
+ */
 function StatsList({ stats }) {
   const namesStats = Object.keys(stats);
   const valuesStats = Object.values(stats);
@@ -64,6 +75,7 @@ function StatsList({ stats }) {
 }
 
 StatsList.propTypes = {
+  /** Data of user stats */
   stats: PropTypes.object.isRequired,
 };
 

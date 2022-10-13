@@ -10,6 +10,11 @@ const links = [
   { name: "Communauté", url: "/" },
 ];
 
+
+/**
+ * Header component
+ * @returns {React.ReactElement}
+ */
 function Header() {
   return (
     <header>

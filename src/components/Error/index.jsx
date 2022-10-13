@@ -1,6 +1,11 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import styles from "styles/components/error.module.scss";
 
+/**
+ * Error component (404 page)
+ * @returns {React.ReactElement}
+ */
 function Error() {
   return (
     <div className={styles.errorContainer}>

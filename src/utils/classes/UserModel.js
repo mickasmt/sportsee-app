@@ -18,7 +18,7 @@ export class userDataFormat {
 }
 
 /**
- * @description Class to format user activities data 
+ * @description Class to format user activities data
  * @param {Object} data
  * @returns {Object}
  */
@@ -33,19 +33,34 @@ export class userActivitiesFormat {
 }
 
 /**
- * @description Class to format user average sessions data 
+ * @description Class to format user average sessions data
  * @param {Object} data
  * @returns {Object}
  */
 export class userAverageSessionsFormat {
   constructor(data) {
+    this.formatWeekdayLetter(data.sessions);
+
     this.userId = data.userId;
     this.sessions = data.sessions;
+  }
+
+  /**
+   * Format days number to letter
+   * @param {Object} sessions
+   */
+  formatWeekdayLetter(sessions) {
+    const weekdays = ["L", "M", "M", "J", "V", "S", "D"];
+
+    Object.keys(sessions).forEach((key) => {
+      const dayNumber = sessions[key]['day'];
+      sessions[key]['day'] = weekdays[dayNumber - 1];
+    });
   }
 }
 
 /**
- * @description Class to format user performances data 
+ * @description Class to format user performances data
  * @param {Object} data
  * @returns {Object}
  */
@@ -58,7 +73,6 @@ export class userPerformancesFormat {
     this.data = data.data;
   }
 
-  
   /**
    * Translate the kind words list in french version
    * @param {Object} kind

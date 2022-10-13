@@ -10,6 +10,13 @@ import {
 } from "recharts";
 import styles from "styles/components/profile/averageSessions.module.scss";
 
+
+/**
+ * Custom tooltip for AreaChart
+ * @param {boolean} active Return true if user is hovered over on the graph
+ * @param {array} payload Array of current location data which is hovered over by the user on the graph
+ * @returns {(React.ReactElement|null)} Return tooltip if user is on the AreaChart else return null
+ */
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -22,6 +29,12 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
+
+/**
+ * AverageSessions component. Contains AreaChart
+ * @param {data} data Data of user average sessions
+ * @returns {React.ReactElement}
+ */
 function AverageSessions({ data }) {
   return (
     <div className={styles.averageContainer}>
@@ -43,12 +56,7 @@ function AverageSessions({ data }) {
             dataKey="day"
             axisLine={false}
             tickLine={false}
-            // height={20}
             tick={{ fontSize: 12, fontWeight: 500, fill: "#fff", opacity: 0.5 }}
-            tickFormatter={(day) => {
-              const weekdays = ["L", "M", "M", "J", "V", "S", "D"];
-              return weekdays[day - 1];
-            }}
             allowDataOverflow={false}
           />
           <YAxis
@@ -75,10 +83,19 @@ function AverageSessions({ data }) {
   );
 }
 
+CustomTooltip.propTypes = {
+  /** Boolean if user is hovered over the chart */
+  active: PropTypes.bool,
+  /** Array data for the current location that is hovered over */
+  payload: PropTypes.array,
+};
+
 AverageSessions.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      day: PropTypes.number.isRequired,
+      /** Day number of date */
+      day: PropTypes.string.isRequired,
+      /** Length session for the day */
       sessionLength: PropTypes.number.isRequired,
     })
   ),
